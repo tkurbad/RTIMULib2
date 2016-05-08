@@ -83,7 +83,7 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                 imuType = RTIMU_TYPE_MPU9255;
                 slaveAddress = MPU9255_ADDRESS0;
                 busIsI2C = true;
-                HAL_INFO("Detected MPU9250 at standard address\n");
+                HAL_INFO("Detected MPU9255 at standard address\n");
                 return true;
             } else if (result == MPU9250_ID) {
                 imuType = RTIMU_TYPE_MPU9250;

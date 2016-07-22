@@ -209,7 +209,7 @@ bool RTIMULSM6DS33LIS3MDL::setGyroCTRL7()
         break;
 
     default:
-        HAL_ERROR1("Illegal LSM6DS33 gyro high pass filter code %d\n", m_settings->m_LSM6DS33GyroHpf);
+        HAL_ERROR1("Illegal LSM6DS33 gyro high pass filter code %d\n", m_settings->m_LSM6DS33LIS3MDLGyroHpf);
         return false;
     }
 
@@ -437,7 +437,7 @@ bool RTIMULSM6DS33LIS3MDL::setCompassCTRL3()
 
 bool RTIMULSM6DS33LIS3MDL::setCompassCTRL4()
 {
-    if ((m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_LP) || ((m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_UHP)) {
+    if ((m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_LP) || (m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_UHP)) {
         HAL_ERROR1("Illegal LIS3MDL compass power mode code %d\n", m_settings->m_LSM6DS33LIS3MDLCompassPowerMode);
         return false;
     }

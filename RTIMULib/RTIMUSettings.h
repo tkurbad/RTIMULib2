@@ -152,6 +152,20 @@
 
 #define RTIMULIB_BMX055_MAG_PRESET          "BMX055MagPreset"
 
+// LSM6DS33LIS3MDL settings keys
+
+#define RTIMULIB_LSM6DS33LIS3MDL_GYRO_SAMPLERATE "LSM6DS33LIS3MDLGyroSampleRate"
+#define RTIMULIB_LSM6DS33LIS3MDL_GYRO_HPF  "LSM6DS33LIS3MDLGyroHpf"
+#define RTIMULIB_LSM6DS33LIS3MDL_GYRO_FSR  "LSM6DS33LIS3MDLGyroFsr"
+
+#define RTIMULIB_LSM6DS33LIS3MDL_ACCEL_SAMPLERATE "LSM6DS33LIS3MDLAccelSampleRate"
+#define RTIMULIB_LSM6DS33LIS3MDL_ACCEL_FSR "LSM6DS33LIS3MDLAccelFsr"
+#define RTIMULIB_LSM6DS33LIS3MDL_ACCEL_LPF "LSM6DS33LIS3MDLAccelLpf"
+
+#define RTIMULIB_LSM6DS33LIS3MDL_COMPASS_SAMPLERATE "LSM6DS33LIS3MDLCompassSampleRate"
+#define RTIMULIB_LSM6DS33LIS3MDL_COMPASS_FSR "LSM6DS33LIS3MDLCompassFsr"
+#define RTIMULIB_LSM6DS33LIS3MDL_COMPASS_POWERMODE "LSM6DS33LIS3MDLCompassPowerMode"
+
 //  Gyro bias keys
 
 #define RTIMULIB_GYRO_BIAS_VALID            "GyroBiasValid"
@@ -368,6 +382,20 @@ public:
     int m_BMX055AccelFsr;                                   // the accel full scale range
 
     int m_BMX055MagPreset;                                  // the mag preset code
+
+    // LSM6DS33 + LIS3MDL
+
+    int m_LSM6DS33LIS3MDLGyroSampleRate;                    // the gyro sample rate
+    int m_LSM6DS33LIS3MDLGyroHpf;                           // the gyro high pass filter cutoff code
+    int m_LSM6DS33LIS3MDLGyroFsr;                           // the gyro full scale range
+
+    int m_LSM6DS33LIS3MDLAccelSampleRate;                   // the accel sample rate
+    int m_LSM6DS33LIS3MDLAccelFsr;                          // the accel full scale range
+    int m_LSM6DS33LIS3MDLAccelLpf;                          // the accel low pass filter
+
+    int LSM6DS33LIS3MDLCompassSampleRate;                   // the compass sample rate
+    int LSM6DS33LIS3MDLCompassFsr;                          // the compass full scale range
+    int LSM6DS33LIS3MDLCompassPowerMode;                    // the compass power mode
 
 private:
     void setBlank();

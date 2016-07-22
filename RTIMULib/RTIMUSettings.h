@@ -393,9 +393,9 @@ public:
     int m_LSM6DS33LIS3MDLAccelFsr;                          // the accel full scale range
     int m_LSM6DS33LIS3MDLAccelLpf;                          // the accel low pass filter
 
-    int LSM6DS33LIS3MDLCompassSampleRate;                   // the compass sample rate
-    int LSM6DS33LIS3MDLCompassFsr;                          // the compass full scale range
-    int LSM6DS33LIS3MDLCompassPowerMode;                    // the compass power mode
+    int m_LSM6DS33LIS3MDLCompassSampleRate;                 // the compass sample rate
+    int m_LSM6DS33LIS3MDLCompassFsr;                        // the compass full scale range
+    int m_LSM6DS33LIS3MDLCompassPowerMode;                  // the compass power mode
 
 private:
     void setBlank();

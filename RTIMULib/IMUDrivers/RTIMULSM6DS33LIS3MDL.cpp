@@ -152,7 +152,7 @@ bool RTIMULSM6DS33LIS3MDL::setGyroCTRL2()
 
     m_sampleInterval = (uint64_t)1000000 / m_sampleRate;
 
-    switch (m_settings->m_LSM6DS33GyroFsr) {
+    switch (m_settings->m_LSM6DS33LIS3MDLGyroFsr) {
     case LSM6DS33_GYRO_FSR_125:
         ctrl2 |= 0x02;
         m_gyroScale = (RTFLOAT)0.004375 * RTMATH_DEGREE_TO_RAD;
@@ -178,7 +178,7 @@ bool RTIMULSM6DS33LIS3MDL::setGyroCTRL2()
         break;
 
     default:
-        HAL_ERROR1("Illegal LSM6DS33 gyro FSR code %d\n", m_settings->m_LSM6DS33GyroFsr);
+        HAL_ERROR1("Illegal LSM6DS33 gyro FSR code %d\n", m_settings->m_LSM6DS33LIS3MDLGyroFsr);
         return false;
     }
 
@@ -190,7 +190,7 @@ bool RTIMULSM6DS33LIS3MDL::setGyroCTRL7()
     unsigned char ctrl7;
 
     // Turn on HPF
-    ctrl7 = 0x40
+    ctrl7 = 0x40;
 
     switch (m_settings->m_LSM6DS33LIS3MDLGyroHpf) {
     case LSM6DS33_GYRO_HPF_0:
@@ -285,6 +285,11 @@ bool RTIMULSM6DS33LIS3MDL::setAccelCTRL1()
         ctrl1 |= 0x04;
         m_accelScale = (RTFLOAT)0.000488;
         break;
+
+    default:
+        HAL_ERROR1("Illegal LSM6DS33 accel FSR code %d\n", m_settings->m_LSM6DS33LIS3MDLAccelFsr);
+        return false;
+    }
 
     switch (m_settings->m_LSM6DS33LIS3MDLAccelLpf) {
     case LSM6DS33_ACCEL_LPF_400:
@@ -470,8 +475,6 @@ bool RTIMULSM6DS33LIS3MDL::IMURead()
 
     if (!m_settings->HALRead(m_compassSlaveAddr, 0x80 | LIS3MDL_OUT_X_L, 6, compassData, "Failed to read LIS3MDL compass data"))
         return false;
-
-#endif
 
     RTMath::convertToVector(gyroData, m_imuData.gyro, m_gyroScale, false);
     RTMath::convertToVector(accelData, m_imuData.accel, m_accelScale, false);

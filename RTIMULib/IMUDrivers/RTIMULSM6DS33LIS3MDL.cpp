@@ -377,6 +377,8 @@ bool RTIMULSM6DS33LIS3MDL::setCompassCTRL1()
             return false;
         }
 
+        break;
+
     default:
         HAL_ERROR1("Illegal LIS3MDL compass sample rate code %d\n", m_settings->m_LSM6DS33LIS3MDLCompassSampleRate);
         return false;
@@ -437,7 +439,7 @@ bool RTIMULSM6DS33LIS3MDL::setCompassCTRL3()
 
 bool RTIMULSM6DS33LIS3MDL::setCompassCTRL4()
 {
-    if ((m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_LP) || (m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_UHP)) {
+    if ((m_settings->m_LSM6DS33LIS3MDLCompassPowerMode < LIS3MDL_POWER_LP) || (m_settings->m_LSM6DS33LIS3MDLCompassPowerMode > LIS3MDL_POWER_UHP)) {
         HAL_ERROR1("Illegal LIS3MDL compass power mode code %d\n", m_settings->m_LSM6DS33LIS3MDLCompassPowerMode);
         return false;
     }

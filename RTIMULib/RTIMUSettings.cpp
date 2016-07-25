@@ -315,7 +315,7 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                 if (HALRead(LIS3MDL_ADDRESS0, LIS3MDL_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LIS3MDL_ID) {
                         imuType = RTIMU_TYPE_LSM6DS33LIS3MDL;
-                        slaveAddress = LSM6DS33_ADDRESS0;
+                        slaveAddress = LSM6DS33_ADDRESS1;
                         busIsI2C = true;
                         HAL_INFO("Detected LSM6DS33/LIS3MDL at option/standard address\n");
                         return true;
@@ -324,7 +324,7 @@ bool RTIMUSettings::discoverIMU(int& imuType, bool& busIsI2C, unsigned char& sla
                 if (HALRead(LIS3MDL_ADDRESS1, LIS3MDL_WHO_AM_I, 1, &altResult, "")) {
                     if (altResult == LIS3MDL_ID) {
                         imuType = RTIMU_TYPE_LSM6DS33LIS3MDL;
-                        slaveAddress = LSM6DS33_ADDRESS0;
+                        slaveAddress = LSM6DS33_ADDRESS1;
                         busIsI2C = true;
                         HAL_INFO("Detected LSM6DS33/LIS3MDL at option/option address\n");
                         return true;

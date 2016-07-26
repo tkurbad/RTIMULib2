@@ -24,6 +24,8 @@
 //  The MPU-9250 and SPI driver code is based on code generously supplied by
 //  staslock@gmail.com (www.clickdrive.io)
 
+//  The LSM6DS33 + LIS3MDL driver code has been contributed by
+//  Torsten Kurbad <github@tk-webart.de>
 
 #include "RTIMUSettings.h"
 #include "IMUDrivers/RTIMUMPU9150.h"

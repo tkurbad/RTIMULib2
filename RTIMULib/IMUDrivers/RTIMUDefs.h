@@ -46,7 +46,7 @@
 #define RTIMU_TYPE_BMX055                   9                   // Bosch BMX055
 #define RTIMU_TYPE_BNO055                   10                  // Bosch BNO055
 #define RTIMU_TYPE_MPU9255                  11                  // InvenSense MPU9255
-#define RTIMU_TYPE_LSM6DS33LIS3MDL          12                  // STM LSM6DS33/LIS3MDL (Pololu AltIMU-10v5)
+#define RTIMU_TYPE_LSM6DS33LIS3MDL          12                  // STM LSM6DS33/LIS3MDL (Pololu MinIMU v5 / AltIMU v5)
 
 //----------------------------------------------------------
 //

@@ -120,6 +120,7 @@ void SelectIMUDlg::layoutWindow()
     m_selectIMU->addItem("Bosch BMX055");
     m_selectIMU->addItem("Bosch BNO055");
     m_selectIMU->addItem("InvenSense MPU9255");
+    m_selectIMU->addItem("STM LSM6DS33/LIS3MDL");
 
     m_selectIMU->setCurrentIndex(m_settings->m_imuType);
 
@@ -236,6 +237,15 @@ void SelectIMUDlg::setSelectAddress(int imuType, int slaveAddress)
             m_selectAddress->addItem("Standard (0x28)", BNO055_ADDRESS0);
             m_selectAddress->addItem("Option (0x29)", BNO055_ADDRESS1);
             if (slaveAddress == BNO055_ADDRESS1)
+                m_selectAddress->setCurrentIndex(1);
+            else
+                m_selectAddress->setCurrentIndex(0);
+            break;
+
+        case RTIMU_TYPE_LSM6DS33LIS3MDL:
+            m_selectAddress->addItem("Standard (0x6a)", LSM6DS33_ADDRESS0);
+            m_selectAddress->addItem("Option (0x6b)", LSM6DS33_ADDRESS0);
+            if (slaveAddress == LSM6DS33_ADDRESS1)
                 m_selectAddress->setCurrentIndex(1);
             else
                 m_selectAddress->setCurrentIndex(0);
